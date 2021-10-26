@@ -2,14 +2,19 @@ import random
 
 
 def main():
-  
-  dice_rolls = 2
+  dice_rolls = int(input('Quanti lanci?'))
+  dice_size = int(input('Quante facce ha il dado?'))
   dice_sum = 0
   for i in range(0,dice_rolls):
-    roll = random.randint(1,6)
-    print(f'You rolled a {roll}')
+    roll = random.randint(1,dice_size)
     dice_sum += roll
-  print(f'the sum is {dice_sum}')
+    if roll == 1:
+      print(f'You rolled a {roll}! Critical Fail')
+    elif roll == dice_size:
+      print(f'You rolled a {roll}! Critical Success!')
+    else:
+      print(f'You rolled a {roll}')
+  print(f'You have rolled a total of {dice_sum}')
 
 if __name__== "__main__":
   main()
